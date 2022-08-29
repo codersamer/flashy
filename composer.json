@@ -14,5 +14,15 @@
             "email": "coder.sam@outlook.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codersamer\\Flashy\\Providers\\FlashyServiceProvider"
+            ],
+            "aliases": {
+                "Eventual" : "Codersamer\\Flashy\\Facades\\Flashy"
+            }
+        }
+    }
 }
