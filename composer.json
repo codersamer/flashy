@@ -1,0 +1,18 @@
+{
+    "name": "codersamer/flashy",
+    "description": "Laravel Feedback and Flash Messages Library",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Codersamer\\Flashy\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Samer Moustafa",
+            "email": "coder.sam@outlook.com"
+        }
+    ],
+    "require": {}
+}
