@@ -1,13 +1,14 @@
 <?php
 
-namespace Coderrsamer\Flashy\Http\Middleware;
+namespace Codersamer\Flashy\Http\Middlewares;
 
 use Closure;
 use Codersamer\Flashy\Facades\Flashy;
-use Illuminate\Http\Request;
 
 class FlashySessionMiddleware
 {
+
+
     /**
      * Handle an incoming request.
      *
@@ -15,9 +16,14 @@ class FlashySessionMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
+        Flashy::restore();
+
+        $next = $next($request);
+
         Flashy::flash();
-        return $next($request);
+
+        return $next;
     }
 }

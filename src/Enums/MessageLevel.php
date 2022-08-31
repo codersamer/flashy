@@ -2,7 +2,7 @@
 
 namespace Codersamer\Flashy\Enums;
 
-enum MessageTypes : String
+enum MessageLevel : String
 {
     case Success = 'success';
     case Warning = 'warning';
