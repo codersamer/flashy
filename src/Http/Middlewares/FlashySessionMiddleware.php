@@ -22,6 +22,15 @@ class FlashySessionMiddleware
 
         $next = $next($request);
 
+        if (session()->get('errors')) {
+            $errors = session()->get('errors');
+            if ($errors instanceof \Illuminate\Support\ViewErrorBag) {
+                $bag = $errors->getMessagesBag();
+                foreach ($bag as $message) {
+                    Flashy::error($message);
+                }
+            }
+        }
         Flashy::flash();
 
         return $next;
