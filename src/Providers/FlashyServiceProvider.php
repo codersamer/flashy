@@ -14,16 +14,15 @@ class FlashyServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->singleton('flashy', function(Application $app){
+        $this->app->singleton('flashy', function (Application $app) {
             return new Flashy($app);
         });
 
-        $this->mergeConfigFrom(__DIR__.'/../configs/flashy.php', 'flashy');
+        $this->mergeConfigFrom(__DIR__ . '/../configs/flashy.php', 'flashy');
 
-        $this->loadViewsFrom(__DIR__.'/../Resources/views', 'flashy');
+        $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'flashy');
         $router = $this->app['router'];
         $router->pushMiddlewareToGroup('web', new FlashySessionMiddleware);
-
     }
 
     public function boot()
