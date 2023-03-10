@@ -19,9 +19,6 @@ class FlashySessionMiddleware
     public function handle($request, Closure $next)
     {
         Flashy::restore();
-
-        $next = $next($request);
-
         if (session()->get('errors')) {
             $errors = session()->get('errors');
             if ($errors instanceof \Illuminate\Support\ViewErrorBag) {
@@ -32,6 +29,9 @@ class FlashySessionMiddleware
             }
         }
         Flashy::flash();
+        $next = $next($request);
+
+
 
         return $next;
     }
