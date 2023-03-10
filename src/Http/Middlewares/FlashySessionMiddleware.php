@@ -28,10 +28,10 @@ class FlashySessionMiddleware
                 }
             }
         }
-        Flashy::flash();
         $next = $next($request);
 
 
+        Flashy::flash();
 
         return $next;
     }
