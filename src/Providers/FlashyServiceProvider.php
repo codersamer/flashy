@@ -30,7 +30,6 @@ class FlashyServiceProvider extends ServiceProvider
     {
         $kernel = app()->make(Kernel::class);
         $kernel->appendMiddlewareToGroup('web', FlashySessionMiddleware::class);
-        //dd($kernel);
         Blade::component(FlashyComponent::class, 'flashy');
     }
 }

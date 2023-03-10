@@ -23,7 +23,7 @@ return [
             'tailwind' => TailwindRenderer::class
         ],
 
-        'use' => 'bootstrap'
+        'use' => 'tailwind'
     ],
 
 ];
